@@ -27,8 +27,11 @@ public class QuickFindUF {
 
     // Busca a raiz onde o índice e o valor são os mesmos
     public int root(int i) {
-        while (i != id[i])
+        while (i != id[i]) {
+            // Faz a árvore filha ser nó da árvore avô
+            id[i] = id[id[i]];
             i = id[i];
+        }
 
         return i;
     }
