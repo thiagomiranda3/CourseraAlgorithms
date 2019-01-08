@@ -23,5 +23,7 @@ public class QuickFindUFTest {
 
         // Nenhuma conexão direta ou indireta
         Assertions.assertEquals(qf.connected(0, 9), false);
+
+        qf.printArray();
     }
 }
