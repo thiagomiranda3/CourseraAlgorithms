@@ -1,11 +1,11 @@
 package br.com.tommiranda.algorithms;
 
-public class FixedArrayStack {
+public class ArrayStack {
 
     private String[] s;
     private int N = 0;
 
-    public FixedArrayStack() {
+    public ArrayStack() {
         s = new String[1];
     }
 
