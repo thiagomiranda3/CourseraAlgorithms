@@ -6,7 +6,7 @@ public class QuickFindUFTest {
 
     @Test
     public void testaUniao() {
-        QuickFindUF qf = new QuickFindUF(10);
+        var qf = new QuickFindUF(10);
 
         qf.union(0, 1);
         qf.union(5, 3);

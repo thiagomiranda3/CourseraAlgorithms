@@ -1,4 +1,4 @@
-import br.com.tommiranda.algorithms.LinkedStack;
+import br.com.tommiranda.algorithms.ArrayStack;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -6,7 +6,7 @@ public class ArrayStackTest {
 
     @Test
     public void testaPilha() {
-        LinkedStack stack = new LinkedStack();
+        var stack = new ArrayStack<String>();
 
         stack.push("1");
         stack.push("2");

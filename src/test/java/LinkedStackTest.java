@@ -6,7 +6,7 @@ public class LinkedStackTest {
 
     @Test
     public void testaPilha() {
-        LinkedStack stack = new LinkedStack();
+        var stack = new LinkedStack();
 
         stack.push("1");
         stack.push("2");

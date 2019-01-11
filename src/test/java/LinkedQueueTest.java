@@ -6,7 +6,7 @@ public class LinkedQueueTest {
 
     @Test
     public void testaFila() {
-        LinkedQueue queue = new LinkedQueue();
+        var queue = new LinkedQueue();
 
         queue.enqueue("1");
         queue.enqueue("2");
