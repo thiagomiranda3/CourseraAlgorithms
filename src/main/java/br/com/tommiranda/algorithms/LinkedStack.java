@@ -1,11 +1,11 @@
 package br.com.tommiranda.algorithms;
 
-public class LinkedStack {
+public class LinkedStack<T> {
 
-    private Node first;
+    private Node<T> first;
 
-    private class Node {
-        String item;
+    private class Node<T> {
+        T item;
         Node next;
     }
 
@@ -13,15 +13,15 @@ public class LinkedStack {
         return first == null;
     }
 
-    public void push(String item) {
-        Node oldFirst = first;
-        first = new Node();
+    public void push(T item) {
+        Node<T> oldFirst = first;
+        first = new Node<T>();
         first.item = item;
         first.next = oldFirst;
     }
 
-    public String pop() {
-        String item = first.item;
+    public T pop() {
+        T item = first.item;
         first = first.next;
         return item;
     }

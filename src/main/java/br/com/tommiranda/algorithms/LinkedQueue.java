@@ -1,11 +1,11 @@
 package br.com.tommiranda.algorithms;
 
-public class LinkedQueue {
+public class LinkedQueue<T> {
 
-    private Node first, last;
+    private Node<T> first, last;
 
-    private class Node {
-        String item;
+    private class Node<T> {
+        T item;
         Node next;
     }
 
@@ -13,9 +13,9 @@ public class LinkedQueue {
         return first == null;
     }
 
-    public void enqueue(String item) {
+    public void enqueue(T item) {
         Node oldLast = last;
-        last = new Node();
+        last = new Node<T>();
         last.item = item;
 
         if(isEmpty())
@@ -24,8 +24,8 @@ public class LinkedQueue {
             oldLast.next = last;
     }
 
-    public String dequeue() {
-        String item = first.item;
+    public T dequeue() {
+        T item = first.item;
         first = first.next;
 
         if(isEmpty())
