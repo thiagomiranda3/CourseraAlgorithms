@@ -5,8 +5,8 @@ public class FixedArrayStack {
     private String[] s;
     private int N = 0;
 
-    public FixedArrayStack(int capacity) {
-        s = new String[capacity];
+    public FixedArrayStack() {
+        s = new String[1];
     }
 
     public boolean isEmpty() {
@@ -14,7 +14,18 @@ public class FixedArrayStack {
     }
 
     public void push(String item) {
+        if (N == s.length)
+            resize(2 * s.length);
         s[N++] = item;
+    }
+
+    private void resize(int capacity) {
+        String[] copy = new String[capacity];
+
+        for (int i = 0; i < N; i++)
+            copy[i] = s[i];
+
+        s = copy;
     }
 
     public String pop() {

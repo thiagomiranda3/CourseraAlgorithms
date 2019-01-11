@@ -33,10 +33,10 @@ public class LinkedStack {
 
         System.out.print("[ ");
         Node aux = first;
-        while(aux.next != null) {
+        while(aux != null) {
             System.out.printf(aux.item + " ");
             aux = aux.next;
         }
-        System.out.print("]");
+        System.out.println("]");
     }
 }

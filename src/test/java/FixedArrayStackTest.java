@@ -2,7 +2,7 @@ import br.com.tommiranda.algorithms.LinkedStack;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class LinkedStackTest {
+public class FixedArrayStackTest {
 
     @Test
     public void testaPilha() {
