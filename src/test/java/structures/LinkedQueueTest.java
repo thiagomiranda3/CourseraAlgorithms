@@ -1,4 +1,6 @@
-import br.com.tommiranda.algorithms.LinkedQueue;
+package structures;
+
+import br.com.tommiranda.algorithms.structures.LinkedQueue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

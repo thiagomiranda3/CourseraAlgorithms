@@ -1,8 +1,8 @@
-package br.com.tommiranda.algorithms;
+package br.com.tommiranda.algorithms.structures;
 
-public class LinkedQueue<T> {
+public class LinkedStack<T> {
 
-    private Node<T> first, last;
+    private Node<T> first;
 
     private class Node<T> {
         T item;
@@ -13,24 +13,16 @@ public class LinkedQueue<T> {
         return first == null;
     }
 
-    public void enqueue(T item) {
-        Node oldLast = last;
-        last = new Node<T>();
-        last.item = item;
-
-        if(isEmpty())
-            first = last;
-        else
-            oldLast.next = last;
+    public void push(T item) {
+        Node<T> oldFirst = first;
+        first = new Node<T>();
+        first.item = item;
+        first.next = oldFirst;
     }
 
-    public T dequeue() {
+    public T pop() {
         T item = first.item;
         first = first.next;
-
-        if(isEmpty())
-            last = null;
-
         return item;
     }
 

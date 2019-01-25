@@ -1,4 +1,4 @@
-package br.com.tommiranda.algorithms;
+package br.com.tommiranda.algorithms.structures;
 
 public class ArrayStack<T> {
 

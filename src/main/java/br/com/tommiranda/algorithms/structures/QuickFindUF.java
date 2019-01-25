@@ -1,4 +1,4 @@
-package br.com.tommiranda.algorithms;
+package br.com.tommiranda.algorithms.structures;
 
 /*
  * Verifica se dois valores estão unidos ou não. Feito com um array:

@@ -1,4 +1,6 @@
-import br.com.tommiranda.algorithms.QuickFindUF;
+package structures;
+
+import br.com.tommiranda.algorithms.structures.QuickFindUF;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

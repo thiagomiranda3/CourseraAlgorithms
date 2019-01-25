@@ -1,4 +1,6 @@
-import br.com.tommiranda.algorithms.ArrayStack;
+package structures;
+
+import br.com.tommiranda.algorithms.structures.ArrayStack;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
