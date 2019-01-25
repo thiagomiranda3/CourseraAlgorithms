@@ -1,10 +1,11 @@
-package structures;
+package tests.structures;
 
 import br.com.tommiranda.algorithms.structures.QuickFindUF;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import tests.BaseTest;
 
-public class QuickFindUFTest {
+public class QuickFindUFTest extends BaseTest {
 
     @Test
     public void testaUniao() {

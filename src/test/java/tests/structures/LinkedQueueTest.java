@@ -1,10 +1,11 @@
-package structures;
+package tests.structures;
 
 import br.com.tommiranda.algorithms.structures.LinkedQueue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import tests.BaseTest;
 
-public class LinkedQueueTest {
+public class LinkedQueueTest extends BaseTest {
 
     @Test
     public void testaFila() {

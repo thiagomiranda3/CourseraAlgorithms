@@ -1,14 +1,16 @@
-package structures;
+package tests.structures;
 
-import br.com.tommiranda.algorithms.structures.ArrayStack;
+import br.com.tommiranda.algorithms.structures.LinkedStack;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import tests.BaseTest;
 
-public class ArrayStackTest {
+public class LinkedStackTest extends BaseTest {
+
 
     @Test
     public void testaPilha() {
-        var stack = new ArrayStack<String>();
+        var stack = new LinkedStack();
 
         stack.push("1");
         stack.push("2");
