@@ -1,6 +1,6 @@
 package br.com.tommiranda.algorithms.sortings;
 
-public abstract class BasicSort {
+public abstract class BaseSort {
 
     // Verifica se o primeiro é menor que o segundo
     protected boolean less(Comparable a, Comparable b) {

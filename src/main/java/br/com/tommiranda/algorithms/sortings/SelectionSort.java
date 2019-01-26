@@ -1,7 +1,7 @@
 package br.com.tommiranda.algorithms.sortings;
 
 // Troca o índice atual pelo menor valor no array
-public class SelectionSort extends BasicSort {
+public class SelectionSort extends BaseSort {
 
     @Override
     public void sort(Comparable[] a) {
