@@ -3,7 +3,7 @@ package br.com.tommiranda.algorithms.structures;
 /*
  * Verifica se dois valores estão unidos ou não. Feito com um array:
  * No início o índice tem o mesmo valor do array (0: [0], 1: [1], 2: [2]...)
- * Mas caso haja uma união entre o 0 e 1, o íncide 1 fica com o valor de 0. (0: [0], 1: [0], 2: [2]...)
+ * Mas caso haja uma união entre o 0 e 1, o índice 1 fica com o valor de 0. (0: [0], 1: [0], 2: [2]...)
  * Para verificar se dois valores estão conectados, basta verificar se possui o mesmo pai.
  */
 public class QuickFindUF {
@@ -36,7 +36,7 @@ public class QuickFindUF {
         return i;
     }
 
-    // Se possuem o mesmo pai, entao estão conectados
+    // Se possuem o mesmo pai, então estão conectados
     public boolean connected(int P, int Q) {
         return root(P) == root(Q);
     }
