@@ -10,7 +10,13 @@ public class Test {
         percolation.open(2, 3);
         percolation.open(3, 3);
 
+        percolation.open(2, 0);
+        percolation.open(3, 0);
+        percolation.open(3, 1);
+
         System.out.println("Percolates: " + percolation.percolates());
         System.out.println("Open Sites: " + percolation.numberOfOpenSites());
+
+        percolation.printMatrix();
     }
 }

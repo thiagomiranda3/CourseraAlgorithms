@@ -3,7 +3,8 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 public class Percolation {
 
     private static final int IS_OPEN = 1;
-    private final WeightedQuickUnionUF wqu;
+    private final WeightedQuickUnionUF wquOpen;
+    private final WeightedQuickUnionUF wquFull;
     private int N;
     private int openSites = 0;
     private int indexTop;
@@ -14,13 +15,15 @@ public class Percolation {
     public Percolation(int n) {
         this.N = n;
         this.matrix = new int[N][N];
-        this.wqu = new WeightedQuickUnionUF((N * N) + 2);
+        this.wquOpen = new WeightedQuickUnionUF((N * N) + 2);
+        this.wquFull = new WeightedQuickUnionUF((N * N) + 1);
         this.indexTop = N * N;
         this.indexBottom = (N * N) + 1;
 
         for (int i = 0; i < N; i++) {
-            wqu.union(indexTop, getIndex(0, i));
-            wqu.union(indexBottom, getIndex(N - 1, i));
+            wquFull.union(indexTop, getIndex(0, i));
+            wquOpen.union(indexTop, getIndex(0, i));
+            wquOpen.union(indexBottom, getIndex(N - 1, i));
         }
     }
 
@@ -45,7 +48,8 @@ public class Percolation {
         }
 
         if (matrix[rowV][colV] == IS_OPEN) {
-            wqu.union(getIndex(row, col), getIndex(rowV, colV));
+            wquOpen.union(getIndex(row, col), getIndex(rowV, colV));
+            wquFull.union(getIndex(row, col), getIndex(rowV, colV));
         }
     }
 
@@ -60,7 +64,7 @@ public class Percolation {
     public boolean isFull(int row, int col) {
         validateMatrix(row, col);
 
-        return isOpen(row, col) && wqu.connected(indexTop, getIndex(row, col));
+        return isOpen(row, col) && wquFull.connected(indexTop, getIndex(row, col));
     }
 
     // returns the number of open sites
@@ -70,7 +74,7 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
-        return wqu.connected(indexTop, indexBottom);
+        return wquOpen.connected(indexTop, indexBottom);
     }
 
     private int getIndex(int row, int col) {
@@ -88,6 +92,23 @@ public class Percolation {
     private void validateMatrix(int row, int col) {
         if (!checkRowCol(row, col)) {
             throw new IllegalArgumentException("[" + row + ", " + col + "] is invalid");
+        }
+    }
+
+    public void printMatrix() {
+        for (int i = 0; i < N; i++) {
+            System.out.println("");
+            System.out.print("[ ");
+            for (int j = 0; j < N; j++) {
+                if(isFull(i, j)) {
+                    System.out.print("# ");
+                } else if(isOpen(i, j)) {
+                    System.out.print("1 ");
+                } else {
+                    System.out.print("0 ");
+                }
+            }
+            System.out.print("]");
         }
     }
 }
