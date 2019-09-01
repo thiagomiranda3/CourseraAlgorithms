@@ -3,12 +3,12 @@ package br.com.tommiranda.algorithms.sortings;
 public abstract class BaseSort {
 
     // Verifica se o primeiro é menor que o segundo
-    protected boolean less(Comparable a, Comparable b) {
+    protected static boolean less(Comparable a, Comparable b) {
         return a.compareTo(b) < 0;
     }
 
     // Troca as posições dos índices i e j
-    protected void exch(Comparable[] a, int i, int j) {
+    protected static void exch(Comparable[] a, int i, int j) {
         Comparable swap = a[i];
         a[i] = a[j];
         a[j] = swap;

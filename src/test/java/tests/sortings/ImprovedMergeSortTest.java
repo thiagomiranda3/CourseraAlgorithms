@@ -1,6 +1,7 @@
 package tests.sortings;
 
-import br.com.tommiranda.algorithms.sortings.InsertionSort;
+import br.com.tommiranda.algorithms.sortings.ImprovedMergeSort;
+import br.com.tommiranda.algorithms.sortings.MergeSort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import tests.BaseTest;
@@ -8,9 +9,9 @@ import tests.BaseTest;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-public class InsertionSortTest extends BaseTest {
+public class ImprovedMergeSortTest extends BaseTest {
 
-    private InsertionSort insertion = new InsertionSort();
+    private ImprovedMergeSort merge = new ImprovedMergeSort();
 
     @Test
     public void testaIsSorted() {
@@ -18,9 +19,9 @@ public class InsertionSortTest extends BaseTest {
         Integer[] iguais = {5, 5, 5, 5};
         Integer[] desordenados = {4, 3, 1, 2};
 
-        Assertions.assertEquals(insertion.isSorted(ordenados), true);
-        Assertions.assertEquals(insertion.isSorted(iguais), true);
-        Assertions.assertEquals(insertion.isSorted(desordenados), false);
+        Assertions.assertEquals(merge.isSorted(ordenados), true);
+        Assertions.assertEquals(merge.isSorted(iguais), true);
+        Assertions.assertEquals(merge.isSorted(desordenados), false);
     }
 
     @Test
@@ -30,25 +31,25 @@ public class InsertionSortTest extends BaseTest {
                                              .boxed()
                                              .toArray(Integer[]::new);
 
-        insertion.print(numeros);
+        merge.print(numeros);
 
-        insertion.sort(numeros);
-        Assertions.assertEquals(insertion.isSorted(numeros), true);
+        merge.sort(numeros);
+        merge.print(numeros);
 
-        //insertion.print(numeros);
+        Assertions.assertEquals(merge.isSorted(numeros), true);
     }
 
     @Test
     public void verificaTempoOrdenacaoRandom() {
         System.out.println("==> GERANDO NÚMEROS");
         Integer[] numeros = ThreadLocalRandom.current()
-                                             .ints(100000)
+                                             .ints(10000000)
                                              .boxed()
                                              .toArray(Integer[]::new);
 
         System.out.println("==> ORDENANDO VALORES");
         long startTime = System.nanoTime();
-        insertion.sort(numeros);
+        merge.sort(numeros);
         long nanoTime = (System.nanoTime() - startTime);
 
         printTempos(nanoTime);

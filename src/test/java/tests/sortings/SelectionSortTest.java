@@ -37,4 +37,20 @@ public class SelectionSortTest extends BaseTest {
 
         selection.print(numeros);
     }
+
+    @Test
+    public void verificaTempoOrdenacaoRandom() {
+        System.out.println("==> GERANDO NÚMEROS");
+        Integer[] numeros = ThreadLocalRandom.current()
+                                             .ints(100000)
+                                             .boxed()
+                                             .toArray(Integer[]::new);
+
+        System.out.println("==> ORDENANDO VALORES");
+        long startTime = System.nanoTime();
+        selection.sort(numeros);
+        long nanoTime = (System.nanoTime() - startTime);
+
+        printTempos(nanoTime);
+    }
 }
