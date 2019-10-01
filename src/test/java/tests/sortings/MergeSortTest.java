@@ -42,7 +42,7 @@ public class MergeSortTest extends BaseTest {
     public void verificaTempoOrdenacaoRandom() {
         System.out.println("==> GERANDO NÚMEROS");
         Integer[] numeros = ThreadLocalRandom.current()
-                                             .ints(10000000)
+                                             .ints(100000)
                                              .boxed()
                                              .toArray(Integer[]::new);
 
