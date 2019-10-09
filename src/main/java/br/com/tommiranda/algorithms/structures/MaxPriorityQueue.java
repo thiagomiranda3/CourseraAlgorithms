@@ -3,36 +3,53 @@ package br.com.tommiranda.algorithms.structures;
 public class MaxPriorityQueue {
 
     private Comparable[] pq;
-    private int N;
+    private int N = 0;
 
     public MaxPriorityQueue(int capacity) {
-        this.pq = new Comparable[capacity];
+        this.pq = new Comparable[capacity + 1];
     }
 
     public void insert(Comparable x) {
-        pq[N++] = x;
+        pq[++N] = x;
+        swim(N);
+    }
+
+    // Faz os nós trocarem com o pai, caso o filho seja maior
+    public void swim(int k) {
+        while (k > 1 && less(k / 2, k)) {
+            exch(k, k / 2);
+            k = k / 2;
+        }
+    }
+
+    private void sink(int k) {
+        while (2 * k <= N) {
+            int j = 2 * k;
+
+            if (j < N && less(j, j + 1)) {
+                j++;
+            }
+
+            if (!less(k, j)) {
+                break;
+            }
+
+            exch(k, j);
+            k = j;
+        }
     }
 
     public Comparable delMax() {
-        int max = 0;
+        Comparable max = pq[1];
+        exch(1, N--);
+        sink(1);
+        pq[N + 1] = null;
 
-        for (int i = 1; i < N; i++) {
-            if (less(pq[max], pq[i])) {
-                max = i;
-            }
-        }
-
-        exch(max, N - 1);
-
-        return pq[--N];
+        return max;
     }
 
     public boolean isEmpty() {
         return N == 0;
-    }
-
-    public Comparable max() {
-        return null;
     }
 
     public int size() {
@@ -41,14 +58,14 @@ public class MaxPriorityQueue {
 
     public void print() {
         System.out.print("[ ");
-        for (int i = 0; i < N; i++) {
+        for (int i = 1; i <= N; i++) {
             System.out.print(pq[i] + " ");
         }
         System.out.println("]");
     }
 
-    private boolean less(Comparable a, Comparable b) {
-        return a.compareTo(b) < 0;
+    private boolean less(int a, int b) {
+        return pq[a].compareTo(pq[b]) < 0;
     }
 
     private void exch(int i, int j) {
