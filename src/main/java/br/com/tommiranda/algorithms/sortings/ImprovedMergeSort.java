@@ -5,7 +5,7 @@ public class ImprovedMergeSort extends BaseSort {
     private static int CUTOFF = 7;
     private static InsertionSort insertion = new InsertionSort();
 
-    private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
+    private void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];
         }
@@ -25,7 +25,7 @@ public class ImprovedMergeSort extends BaseSort {
         }
     }
 
-    private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
+    private void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
         if (hi <= lo + CUTOFF - 1) {
             insertion.sortParcial(a, lo, hi);
             return;

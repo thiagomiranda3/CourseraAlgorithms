@@ -2,7 +2,7 @@ package br.com.tommiranda.algorithms.sortings;
 
 public class MergeSort extends BaseSort {
 
-    private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
+    private void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];
         }
@@ -32,7 +32,7 @@ public class MergeSort extends BaseSort {
         sort(a, aux, 0, a.length - 1);
     }
 
-    private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
+    private void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
         if(hi <= lo) {
             return;
         }
