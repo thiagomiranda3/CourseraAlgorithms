@@ -147,6 +147,21 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
 
     }
 
+    public void deleteMin() {
+        root = deleteMin(root);
+    }
+
+    private Node<Key, Value> deleteMin(Node<Key, Value> node) {
+        if(node.left == null) {
+            return node.right;
+        }
+
+        node.left = deleteMin(node.left);
+        node.setCount(1 + size(node.left) + size(node.right));
+
+        return node;
+    }
+
     // Printo a árvore verticalmente
     public void mostraArvore() {
         mostraArvore(root, 0);
