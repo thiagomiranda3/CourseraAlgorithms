@@ -2,10 +2,12 @@ package br.com.tommiranda.algorithms.trees;
 
 public final class Node<Key extends Comparable<Key>, Value> {
 
-    private final Key key;
-    private Value value;
     public Node<Key, Value> left;
     public Node<Key, Value> right;
+
+    private Key key;
+    private Value value;
+    private int count = 1;
 
     public Node(Key key, Value value) {
         this.key = key;
@@ -16,11 +18,19 @@ public final class Node<Key extends Comparable<Key>, Value> {
         return key;
     }
 
+    public Value getValue() {
+        return value;
+    }
+
     public void setValue(Value value) {
         this.value = value;
     }
 
-    public Value getValue() {
-        return value;
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }

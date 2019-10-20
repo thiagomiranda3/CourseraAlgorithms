@@ -23,9 +23,11 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
             node.setValue(value);
         }
 
+        node.setCount(1 + size(node.left) + size(node.right));
+
         return node;
     }
-
+    
     public Value get(Key key) {
         Node<Key, Value> x = root;
 
@@ -103,6 +105,18 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
             System.out.print("   ");
 
         System.out.println(key);
+    }
+
+    public int size() {
+        size(root);
+    }
+
+    private int size(Node node) {
+        if(node == null) {
+            return 0;
+        }
+
+        node.getCount();
     }
 
     public Iterable<Key> iterator() {
