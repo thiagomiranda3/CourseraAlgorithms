@@ -119,6 +119,27 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
         return node;
     }
 
+    // Retorna o número de keys menores que o valor passado
+    public int rank(Key key) {
+        return rank(root,key);
+    }
+
+    private int rank(Node<Key, Value> node, Key key) {
+        if(node == null) {
+            return 0;
+        }
+
+        int cmp = key.compareTo(node.getKey());
+
+        if(cmp < 0) {
+            return rank(node.left, key);
+        } else if(cmp > 0) {
+            return 1 + size(node.left) + rank(node.right, key);
+        }
+
+        return size(node.left);
+    }
+
     public void delete(Key key) {
 
     }

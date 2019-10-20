@@ -20,6 +20,7 @@ public class SimpleBinarySearchTreeTest extends BaseTest {
         bst.mostraArvore();
         System.out.println("--------------------------------");
 
-        System.out.println("Ceiling: " + bst.ceiling(4) + " - Floor: " + bst.floor(4));
+        System.out.println("Valor: " + 4 + " - Ceiling: " + bst.ceiling(4) + " - Floor: " + bst.floor(4));
+        System.out.println("Valor: " + 9 + " Rank: " + bst.rank(9));
     }
 }
