@@ -1,5 +1,8 @@
 package br.com.tommiranda.algorithms.trees;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
 
     private Node<Key, Value> root;
@@ -121,19 +124,19 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
 
     // Retorna o número de keys menores que o valor passado
     public int rank(Key key) {
-        return rank(root,key);
+        return rank(root, key);
     }
 
     private int rank(Node<Key, Value> node, Key key) {
-        if(node == null) {
+        if (node == null) {
             return 0;
         }
 
         int cmp = key.compareTo(node.getKey());
 
-        if(cmp < 0) {
+        if (cmp < 0) {
             return rank(node.left, key);
-        } else if(cmp > 0) {
+        } else if (cmp > 0) {
             return 1 + size(node.left) + rank(node.right, key);
         }
 
@@ -174,14 +177,32 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
     }
 
     private int size(Node node) {
-        if(node == null) {
+        if (node == null) {
             return 0;
         }
 
         return node.getCount();
     }
 
+    public void printInorder() {
+        System.out.print("[ ");
+        iterator().forEach(k -> System.out.print(k + " "));
+        System.out.print("]");
+    }
+
     public Iterable<Key> iterator() {
-        return null;
+        Queue queue = new ArrayDeque<Runnable>();
+        inorder(root, queue);
+        return queue;
+    }
+
+    private void inorder(Node<Key, Value> node, Queue<Key> queue) {
+        if(node == null) {
+            return;
+        }
+
+        inorder(node.left, queue);
+        queue.add(node.getKey());
+        inorder(node.right, queue);
     }
 }
