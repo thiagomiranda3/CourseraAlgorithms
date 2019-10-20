@@ -83,6 +83,42 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
         return node;
     }
 
+    // Retorna o menor valor mais próximo da chave escolhida
+    public Key ceiling(Key key) {
+        Node<Key, Value> node = ceiling(root, key);
+
+        if (node == null) {
+            return null;
+        }
+
+        return node.getKey();
+    }
+
+    // O maior valor mais próximo da key passada
+    private Node<Key, Value> ceiling(Node<Key, Value> node, Key key) {
+        if (node == null) {
+            return null;
+        }
+
+        int cmp = key.compareTo(node.getKey());
+
+        if (cmp == 0) {
+            return node;
+        }
+
+        if (cmp > 0) {
+            return ceiling(node.right, key);
+        }
+
+        Node<Key, Value> left = ceiling(node.left, key);
+
+        if (left != null) {
+            return left;
+        }
+
+        return node;
+    }
+
     public void delete(Key key) {
 
     }
