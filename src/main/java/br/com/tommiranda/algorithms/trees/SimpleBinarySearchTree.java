@@ -88,7 +88,6 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
 
     private void mostraArvore(Node<Key, Value> node, int b) {
         if (node == null) {
-            //imprimeNo(null, b);
             return;
         }
 
