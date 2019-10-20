@@ -4,6 +4,7 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
 
     private Node<Key, Value> root;
 
+    // Adiciona um nó na árvore
     public void put(Key key, Value value) {
         root = put(root, key, value);
     }
@@ -27,7 +28,8 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
 
         return node;
     }
-    
+
+    // Retorna o valor associado à chave armazenada na árvore
     public Value get(Key key) {
         Node<Key, Value> x = root;
 
@@ -46,6 +48,7 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
         return null;
     }
 
+    // Retorna o menor valor mais próximo da chave escolhida
     public Key floor(Key key) {
         Node<Key, Value> node = floor(root, key);
 
@@ -84,6 +87,7 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
 
     }
 
+    // Printo a árvore verticalmente
     public void mostraArvore() {
         mostraArvore(root, 0);
     }
@@ -107,8 +111,9 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
         System.out.println(key);
     }
 
+    // Retorno o tamanho da árvore
     public int size() {
-        size(root);
+        return size(root);
     }
 
     private int size(Node node) {
@@ -116,7 +121,7 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
             return 0;
         }
 
-        node.getCount();
+        return node.getCount();
     }
 
     public Iterable<Key> iterator() {
