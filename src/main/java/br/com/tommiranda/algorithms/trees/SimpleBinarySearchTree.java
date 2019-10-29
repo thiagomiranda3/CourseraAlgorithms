@@ -144,15 +144,58 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
     }
 
     public void delete(Key key) {
+        if (root != null) {
+            root = delete(root, key);
+        }
+    }
 
+    private Node<Key, Value> delete(Node<Key, Value> node, Key key) {
+        if (node == null) {
+            return null;
+        }
+
+        int cmp = key.compareTo(node.getKey());
+
+        if (cmp < 0) {
+            node.left = delete(node.left, key);
+        } else if (cmp > 0) {
+            node.right = delete(node.right, key);
+        } else {
+            if (node.right == null) {
+                return node.left;
+            }
+
+            if (node.left == null) {
+                return node.right;
+            }
+
+            Node t = node;
+            node = min(t.right);
+            node.right = deleteMin(t.right);
+            node.left = t.left;
+        }
+
+        node.setCount(1 + size(node.left) + size(node.right));
+
+        return node;
+    }
+
+    private Node<Key, Value> min(Node<Key, Value> node) {
+        if (node.left == null) {
+            return node;
+        }
+
+        return min(node.left);
     }
 
     public void deleteMin() {
-        root = deleteMin(root);
+        if (root != null) {
+            root = deleteMin(root);
+        }
     }
 
     private Node<Key, Value> deleteMin(Node<Key, Value> node) {
-        if(node.left == null) {
+        if (node.left == null) {
             return node.right;
         }
 
@@ -212,7 +255,7 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
     }
 
     private void inorder(Node<Key, Value> node, Queue<Key> queue) {
-        if(node == null) {
+        if (node == null) {
             return;
         }
 
