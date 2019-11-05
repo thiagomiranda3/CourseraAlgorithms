@@ -1,17 +1,27 @@
 package br.com.tommiranda.algorithms.trees;
 
-public class Node<Key extends Comparable<Key>, Value> {
+import com.sun.jdi.Value;
 
-    public Node<Key, Value> left;
-    public Node<Key, Value> right;
+public class ColorNode<Key extends Comparable<Key>, Value> {
 
+    private boolean isRed = true;
     private Key key;
     private Value value;
     private int count = 1;
+    public ColorNode<Key, Value> left;
+    public ColorNode<Key, Value> right;
 
-    public Node(Key key, Value value) {
+    public ColorNode(Key key, Value value) {
         this.key = key;
         this.value = value;
+    }
+
+    public void setRed(boolean red) {
+        isRed = red;
+    }
+
+    public boolean isRed() {
+        return isRed;
     }
 
     public Key getKey() {

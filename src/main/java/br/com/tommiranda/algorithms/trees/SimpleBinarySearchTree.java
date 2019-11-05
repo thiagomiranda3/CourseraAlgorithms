@@ -249,7 +249,7 @@ public class SimpleBinarySearchTree<Key extends Comparable<Key>, Value> {
     }
 
     public Iterable<Key> iterator() {
-        Queue queue = new ArrayDeque<Runnable>();
+        Queue queue = new ArrayDeque<Key>();
         inorder(root, queue);
         return queue;
     }
